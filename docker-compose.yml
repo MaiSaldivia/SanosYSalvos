@@ -1,0 +1,95 @@
+version: '3.8'
+
+services:
+  mascotas-db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mascotas_db
+    ports:
+      - "3307:3306"
+
+  geo-db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: geo_db
+    ports:
+      - "3308:3306"
+
+  match-db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: match_db
+    ports:
+      - "3309:3306"
+
+  users-db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: users_db
+    ports:
+      - "3310:3306"
+
+  ms-gestion-mascotas:
+    build: ./ms-gestion-mascotas
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mascotas-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mascotas-db:3306/mascotas_db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+
+  ms-geolocalizacion:
+    build: ./ms-geolocalizacion
+    ports:
+      - "8082:8082"
+    depends_on:
+      - geo-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://geo-db:3306/geo_db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+
+  ms-motor-coincidencias:
+    build: ./ms-motor-coincidencias
+    ports:
+      - "8083:8083"
+    depends_on:
+      - match-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://match-db:3306/match_db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+
+  ms-usuarios-entidades:
+    build: ./ms-usuarios-entidades
+    ports:
+      - "8084:8084"
+    depends_on:
+      - users-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://users-db:3306/users_db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - ms-gestion-mascotas
+      - ms-geolocalizacion
+      - ms-motor-coincidencias
+      - ms-usuarios-entidades
+
+  bff:
+    build: ./bff
+    ports:
+      - "8085:8085"
+    depends_on:
+      - api-gateway
