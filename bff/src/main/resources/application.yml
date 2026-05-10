@@ -1,0 +1,10 @@
+server:
+  port: 8085
+
+geo:
+  service:
+    url: ${GEO_SERVICE_URL:http://ms-geolocalizacion:8082}
+
+match:
+  service:
+    url: ${MATCH_SERVICE_URL:http://ms-motor-coincidencias:8083}

@@ -1,0 +1,23 @@
+# Gradle
+.gradle/
+build/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven artifacts
+target/
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
