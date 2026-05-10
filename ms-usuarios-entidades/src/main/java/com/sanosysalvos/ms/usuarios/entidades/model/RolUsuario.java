@@ -1,7 +1,7 @@
 package com.sanosysalvos.ms.usuarios.entidades.model;
 
 public enum RolUsuario {
-    DUEÑO,
+    DUENO,
     VETERINARIA,
     MUNICIPIO,
     REFUGIO
