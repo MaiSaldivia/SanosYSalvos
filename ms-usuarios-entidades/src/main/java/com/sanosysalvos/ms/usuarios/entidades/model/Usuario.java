@@ -18,7 +18,6 @@ public class Usuario {
 
     private String telefono;
 
-<<<<<<< HEAD
     public Long getId() {
         return id;
     }
@@ -58,7 +57,4 @@ public class Usuario {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-=======
-    // Getters y Setters
->>>>>>> f49db73111ad4a90dfcae73a9927848fc0d71148
 }

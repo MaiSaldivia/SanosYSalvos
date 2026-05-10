@@ -34,13 +34,7 @@ services:
       - "3310:3306"
 
   ms-gestion-mascotas:
-<<<<<<< HEAD
-    build:
-      context: .
-      dockerfile: ms-gestion-mascotas/Dockerfile
-=======
     build: ./ms-gestion-mascotas
->>>>>>> f49db73111ad4a90dfcae73a9927848fc0d71148
     ports:
       - "8081:8081"
     depends_on:
@@ -51,13 +45,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
 
   ms-geolocalizacion:
-<<<<<<< HEAD
-    build:
-      context: .
-      dockerfile: ms-geolocalizacion/Dockerfile
-=======
     build: ./ms-geolocalizacion
->>>>>>> f49db73111ad4a90dfcae73a9927848fc0d71148
     ports:
       - "8082:8082"
     depends_on:
@@ -68,13 +56,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
 
   ms-motor-coincidencias:
-<<<<<<< HEAD
-    build:
-      context: .
-      dockerfile: ms-motor-coincidencias/Dockerfile
-=======
     build: ./ms-motor-coincidencias
->>>>>>> f49db73111ad4a90dfcae73a9927848fc0d71148
     ports:
       - "8083:8083"
     depends_on:
@@ -85,13 +67,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
 
   ms-usuarios-entidades:
-<<<<<<< HEAD
-    build:
-      context: .
-      dockerfile: ms-usuarios-entidades/Dockerfile
-=======
     build: ./ms-usuarios-entidades
->>>>>>> f49db73111ad4a90dfcae73a9927848fc0d71148
     ports:
       - "8084:8084"
     depends_on:
@@ -102,13 +78,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
 
   api-gateway:
-<<<<<<< HEAD
-    build:
-      context: .
-      dockerfile: api-gateway/Dockerfile
-=======
     build: ./api-gateway
->>>>>>> f49db73111ad4a90dfcae73a9927848fc0d71148
     ports:
       - "8080:8080"
     depends_on:
@@ -118,20 +88,11 @@ services:
       - ms-usuarios-entidades
 
   bff:
-<<<<<<< HEAD
-    build:
-      context: .
-      dockerfile: bff/Dockerfile
-=======
     build: ./bff
->>>>>>> f49db73111ad4a90dfcae73a9927848fc0d71148
     ports:
       - "8085:8085"
     depends_on:
       - api-gateway
-<<<<<<< HEAD
     environment:
       GEO_SERVICE_URL: http://ms-geolocalizacion:8082
       MATCH_SERVICE_URL: http://ms-motor-coincidencias:8083
-=======
->>>>>>> f49db73111ad4a90dfcae73a9927848fc0d71148
