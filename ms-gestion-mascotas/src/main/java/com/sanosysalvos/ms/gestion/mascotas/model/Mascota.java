@@ -26,6 +26,7 @@ public class Mascota {
     @Enumerated(EnumType.STRING)
     private EstadoMascota estado;
 
+<<<<<<< HEAD
     public Long getIdMascota() {
         return idMascota;
     }
@@ -105,4 +106,7 @@ public class Mascota {
     public void setEstado(EstadoMascota estado) {
         this.estado = estado;
     }
+=======
+    // Getters y Setters
+>>>>>>> f49db73111ad4a90dfcae73a9927848fc0d71148
 }

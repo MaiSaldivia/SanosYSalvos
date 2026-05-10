@@ -16,6 +16,7 @@ public class Coincidencia {
     private Double porcentajeSimilitud;
     private LocalDateTime fechaMatch;
 
+<<<<<<< HEAD
     public Long getId() {
         return id;
     }
@@ -55,4 +56,7 @@ public class Coincidencia {
     public void setFechaMatch(LocalDateTime fechaMatch) {
         this.fechaMatch = fechaMatch;
     }
+=======
+    // Getters y Setters
+>>>>>>> f49db73111ad4a90dfcae73a9927848fc0d71148
 }

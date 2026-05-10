@@ -15,6 +15,7 @@ public class PuntoInteres {
     private String tipoZona; // INCIDENCIA_ALTA, REFUGIO
     private String descripcion;
 
+<<<<<<< HEAD
     public Long getId() {
         return id;
     }
@@ -54,4 +55,7 @@ public class PuntoInteres {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+=======
+    // Getters y Setters
+>>>>>>> f49db73111ad4a90dfcae73a9927848fc0d71148
 }
