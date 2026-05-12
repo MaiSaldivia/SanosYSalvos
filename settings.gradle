@@ -1,0 +1,2 @@
+rootProject.name = 'sanos-y-salvos-backend'
+include 'api-gateway', 'bff', 'ms-geolocalizacion', 'ms-gestion-mascotas', 'ms-motor-coincidencias', 'ms-usuarios-entidades'
